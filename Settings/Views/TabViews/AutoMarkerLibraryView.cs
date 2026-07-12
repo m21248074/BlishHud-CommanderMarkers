@@ -77,33 +77,33 @@ public class AutoMarkerLibraryView : View
 
         var newMarkerSet = new StandardButton()
         {
-            Text = "Add New",
+            Text = "新增",
             Parent = _listingHeader,
             Width = 95,
             Location = new Point(20, 3)
         };
         _currentMapFilter = new Checkbox()
         {
-            Text = "Current map",
+            Text = "目前地圖",
             Parent = _listingHeader,
             Location = new Point(newMarkerSet.Right + 5, 10),
             Checked = Service.Settings.AutoMarker_LibraryFilterToCurrent.Value,
-            BasicTooltipText = "Only show marker sets for your current map"
+            BasicTooltipText = "僅顯示您目前所在的地圖標記組合"
         };
         _mineFilter = new Checkbox()
         {
-            Text = "Mine",
+            Text = "我的標記",
             Parent = _listingHeader,
             Location = new Point(_currentMapFilter.Right + 8, 10),
             Checked = Service.Settings.AutoMarker_LibraryFilterMine.Value,
-            BasicTooltipText = "Hide marker sets imported from the community library"
+            BasicTooltipText = "隱藏從社群資料庫匯入的標記組合"
         };
         _searchBox = new TextBox()
         {
             Parent = _listingHeader,
             Width = LibrarySearch.SearchFieldWidth,
             Location = new Point(_listingHeader.Width - LibrarySearch.SearchFieldWidth - 20, 8),
-            BasicTooltipText = "Search name, description, or map"
+            BasicTooltipText = "搜尋名稱、說明或地圖"
         };
         _searchBox.TextChanged += (_, __) => ReloadMarkerList(_currentMapFilter!.Checked);
         newMarkerSet.Click += (s, e) =>
@@ -111,12 +111,12 @@ public class AutoMarkerLibraryView : View
             var newSet = new MarkerSet();
             newSet.id = Guid.NewGuid().ToString();
             newSet.source = "custom";
-            newSet.name = "new set name";
-            newSet.description = "description";
+            newSet.name = "新組合名稱";
+            newSet.description = "描述";
             newSet.mapId = Gw2MumbleService.Gw2Mumble.CurrentMap.Id;
             newSet.trigger = new WorldCoord();
             var mark = new MarkerCoord();
-            mark.name = "marker name";
+            mark.name = "標記名稱";
             newSet.marks.Add(mark);
             SwapView(newSet, -1);
         };
@@ -124,7 +124,7 @@ public class AutoMarkerLibraryView : View
         var cancelButton = new StandardButton()
         {
             Parent = _detailsHeader,
-            Text = "Cancel",
+            Text = "取消",
             Width = 100,
             Location = new Point(10, 0),
             Icon = Service.Textures!.IconGoBack
@@ -132,7 +132,7 @@ public class AutoMarkerLibraryView : View
         var saveButton = new StandardButton()
         {
             Parent = _detailsHeader,
-            Text = "Save",
+            Text = "儲存",
             Width = 100,
             Location = new Point(115, 0),
             Icon = Service.Textures!.IconSave
@@ -140,28 +140,28 @@ public class AutoMarkerLibraryView : View
         var export = new StandardButton()
         {
             Parent = _detailsHeader,
-            Text = "Export",
+            Text = "匯出",
             Width = 95,
             Icon = Service.Textures!.IconExport,
             Location = new Point(220, 0),
-            BasicTooltipText = "Export this marker set to your clipboard to share with others"
+            BasicTooltipText = "將此標記組合匯出至剪貼簿，以便與他人分享"
         };
         var import = new StandardButton()
         {
             Parent = _detailsHeader,
-            Text = "Import",
+            Text = "匯入",
             Width = 95,
             Location = new Point(320, 0),
             Icon = Service.Textures!.IconImport,
-            BasicTooltipText = "Copy a marker set to your clipboard, then import it by clicking this button"
+            BasicTooltipText = "將標記組合複製到您的剪貼簿，然後點擊此按鈕進行匯入"
         };
         var deleteButton = new StandardButton()
         {
             Parent = _detailsHeader,
             Icon = Service.Textures!.IconDelete,
             Width = 80,
-            Text = "Delete",
-            BasicTooltipText = "Delete Marker Set",
+            Text = "刪除",
+            BasicTooltipText = "刪除標記組合",
             Location = new Point(420, 0)
         };
 
@@ -201,7 +201,7 @@ public class AutoMarkerLibraryView : View
             }
             catch (Exception)
             {
-                ScreenNotification.ShowNotification("Unable to import clipboard content\nDid you copy a marker set first?",
+                ScreenNotification.ShowNotification("無法匯入剪貼簿內容\n您是否先複製了標記組合?",
                     ScreenNotification.NotificationType.Red, null, 5);
             }
         };
@@ -507,7 +507,7 @@ public class AutoMarkerLibraryView : View
                 : Service.Textures._imgClear;
             var btn = new DetailsButton()
             {
-                Text = (marker.enabled ? "" : "(Disabled) ") + $"{marker.name}\n{marker.description}\n{mapName}",
+                Text = (marker.enabled ? "" : "(已停用) ") + $"{marker.name}\n{marker.description}\n{mapName}",
                 Icon = fallbackIcon,
                 IconDetails = MarkerListing.DisplayAuthor(marker),
                 Width = detailButtonWidth,
@@ -553,12 +553,12 @@ public class AutoMarkerLibraryView : View
             var edit = new StandardButton()
             {
                 Parent = btn,
-                Text = communityLinked ? "Personalize" : "Edit",
+                Text = communityLinked ? "個人化" : "編輯",
                 Width = communityLinked ? 95 : 60,
                 Location = new Point(10, 5),
                 BasicTooltipText = communityLinked
-                    ? "Open the editor with this set as a template. Save to add your personalized copy."
-                    : $"Click to edit {marker.name}",
+                    ? "以本組為範本開啟編輯器。儲存後即可新增您的個人化副本。"
+                    : $"點擊以編輯 {marker.name}",
                 Icon = Service.Textures!.IconEdit
             };
             edit.Click += (s, e) =>
@@ -578,10 +578,10 @@ public class AutoMarkerLibraryView : View
                 var share = new StandardButton()
                 {
                     Parent = btn,
-                    Text = "Share",
+                    Text = "分享",
                     Width = 75,
                     Location = new Point(edit.Right + 5, 5),
-                    BasicTooltipText = "Submit this marker set to the community library",
+                    BasicTooltipText = "將此標記組合提交至社群資料庫",
                     Icon = Service.Textures!.IconImport
                 };
                 share.Click += (_, __) => OpenShareView(marker);
@@ -592,17 +592,17 @@ public class AutoMarkerLibraryView : View
                 var deleteBtn = new StandardButton()
                 {
                     Parent = btn,
-                    Text = "Delete",
+                    Text = "刪除",
                     Width = 75,
                     Icon = Service.Textures!.IconDelete,
-                    BasicTooltipText = "Remove this imported set from your library"
+                    BasicTooltipText = "從您的資料庫中移除此匯入的組合"
                 };
                 deleteBtn.Click += (_, __) =>
                 {
                     Service.MapWatch.RemovePreviewMarkerSet();
                     Service.MarkersListing.DeleteMarker(marker);
                     ScreenNotification.ShowNotification(
-                        $"Removed \"{marker.name}\" from your library",
+                        $"已從您的資料庫中移除 \"{marker.name}\"",
                         ScreenNotification.NotificationType.Info);
                 };
             }
@@ -613,7 +613,7 @@ public class AutoMarkerLibraryView : View
                 {
                     Parent = btn,
                     Icon = Service.Textures!.IconEye,
-                    BasicTooltipText = "Hover to preview markers on the map",
+                    BasicTooltipText = "懸停以預覽地圖上的標記",
                     Size = new Point(30, 30)
                 };
                 preview.MouseEntered += (s, e) => Service.MapWatch.PreviewMarkerSet(marker);
@@ -622,7 +622,7 @@ public class AutoMarkerLibraryView : View
                 {
                     Parent = btn,
                     Icon = Service.Textures!._blishHeartSmall,
-                    Text = "Place",
+                    Text = "放置",
                     Width = 100
                 };
                 placeBtn.Click += (s, e) => Service.MapWatch.PlaceMarkers(marker);

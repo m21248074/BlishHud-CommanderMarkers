@@ -34,7 +34,7 @@ public class CornerIconSettingsView : View
 
         var panel = new FlowPanel()
             .BeginFlow(buildPanel)
-            .AddString("Top-left menu bar icon settings")
+            .AddString("左上角選單列圖示設定")
             .AddSetting(_settings.CornerIconEnabled)
             .AddSpace()
             .AddSettingEnum(_settings.CornerIconLeftClickAction)
@@ -43,7 +43,7 @@ public class CornerIconSettingsView : View
             .AddSpace()
             .AddSetting(_settings.CornerIconPriority)
             .AddSpace(40)
-            .AddString("External Data Integrations")
+            .AddString("外部資料整合")
             .AddSpace(20)
             .AddSetting(_settings.RtApiIntegrationEnabled)
             .AddFlowControl(new Label()
@@ -54,8 +54,8 @@ public class CornerIconSettingsView : View
             .AddSpace(40)
             .AddFlowControl(new StandardButton
             {
-                Text = "Update Notes",
-                BasicTooltipText = "Open the module update notes in your default web browser",
+                Text = "更新日誌",
+                BasicTooltipText = "在您的預設網頁瀏覽器中開啟模組更新日誌",
             }, out var patchNotesButton)
             ;
 
@@ -75,7 +75,7 @@ public class CornerIconSettingsView : View
         {
             Parent = buildPanel,
             Location = new Point(20, buildPanel.Height - 50),
-            Text = "Special Thank You to the testers: QuitarHero, Kami, and Naru\nand to Metallis for the module icon",
+            Text = "特別感謝測試人員: QuitarHero、Kami 和 Naru\n以及感謝 Metallis 提供模組圖示",
             AutoSizeWidth = true,
             AutoSizeHeight = true,
         };

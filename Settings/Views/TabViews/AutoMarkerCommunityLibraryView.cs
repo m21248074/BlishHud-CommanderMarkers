@@ -63,7 +63,7 @@ public class AutoMarkerCommunityLibraryView : View
             Width = 200,
             Location = new Point(HEADER_SIDE_PADDING, HEADER_ROW1_Y)
         };
-        _categorySelection.Items.Add("All categories");
+        _categorySelection.Items.Add("所有類別");
         _categorySelection.SelectedItem = _categorySelection.Items[0];
 
         _searchBox = new TextBox()
@@ -71,13 +71,13 @@ public class AutoMarkerCommunityLibraryView : View
             Parent = _listingHeader,
             Width = LibrarySearch.SearchFieldWidth,
             Location = new Point(_listingHeader.Width - LibrarySearch.SearchFieldWidth - HEADER_SIDE_PADDING, HEADER_ROW1_Y + 2),
-            BasicTooltipText = "Search name, description, author, or map"
+            BasicTooltipText = "搜尋名稱、描述、作者或地圖"
         };
         _searchBox.TextChanged += (_, __) => ReloadMarkerList(_currentMapFilter!.Checked);
 
         _currentMapFilter = new Checkbox()
         {
-            Text = "Current map",
+            Text = "目前地圖",
             Parent = _listingHeader,
             Location = new Point(HEADER_SIDE_PADDING, HEADER_ROW2_Y),
             Checked = Service.Settings.AutoMarker_LibraryFilterToCurrent.Value
@@ -85,19 +85,19 @@ public class AutoMarkerCommunityLibraryView : View
 
         _hideImportedFilter = new Checkbox()
         {
-            Text = "Available",
+            Text = "可用",
             Parent = _listingHeader,
             Location = new Point(150, HEADER_ROW2_Y),
             Checked = false,
-            BasicTooltipText = "Only show sets you have not imported yet"
+            BasicTooltipText = "僅顯示尚未匯入的組合"
         };
 
         var reload = new NuclearOptionButton()
         {
             Parent = _listingHeader,
             Width = 100,
-            Text = "Redownload",
-            BasicTooltipText = "Force a redownload of the community library.\n\nHold Ctrl and Shift to activate the button",
+            Text = "重新下載",
+            BasicTooltipText = "強制重新下載社群資料庫。\n\n按住 Ctrl 和 Shift 鍵以啟用此按鈕",
             Location = new Point(_listingHeader.Width - 100 - HEADER_SIDE_PADDING, HEADER_ROW2_Y - 2)
         };
         reload.Click += (s, e) =>
@@ -110,7 +110,7 @@ public class AutoMarkerCommunityLibraryView : View
                     LoadCategorySelection();
                     ReloadMarkerList(_currentMapFilter!.Checked);
                     RenderShareSection();
-                    ScreenNotification.ShowNotification("Community Library has been reloaded.",
+                    ScreenNotification.ShowNotification("社群資料庫已重新載入。",
                         ScreenNotification.NotificationType.Info);
                 });
             });
@@ -171,7 +171,7 @@ public class AutoMarkerCommunityLibraryView : View
     {
         var selected = _categorySelection?.SelectedItem as string;
         _categorySelection?.Items.Clear();
-        _categorySelection?.Items.Add("All categories");
+        _categorySelection?.Items.Add("所有類別");
 
         var seen = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
         foreach (var category in Service.CommunityCatalog.Categories)
@@ -209,7 +209,7 @@ public class AutoMarkerCommunityLibraryView : View
         var searchLower = LibrarySearch.ToLowerCopy(_searchBox?.Text ?? "");
         foreach (var summary in Service.CommunityCatalog.Sets)
         {
-            if (!string.IsNullOrEmpty(selectedCategory) && selectedCategory != "All categories" &&
+            if (!string.IsNullOrEmpty(selectedCategory) && selectedCategory != "所有類別" &&
                 summary.CategoryName != selectedCategory)
             {
                 continue;
@@ -247,7 +247,7 @@ public class AutoMarkerCommunityLibraryView : View
         {
             panel.AddFlowControl(new Label
             {
-                Text = "Community library not loaded yet. Use Redownload (Ctrl+Shift) to fetch.",
+                Text = "社群資料庫尚未載入。請使用重新下載 (Ctrl+Shift) 來進行獲取。",
                 AutoSizeWidth = true
             });
             return;
@@ -308,7 +308,7 @@ public class AutoMarkerCommunityLibraryView : View
                 {
                     Parent = btn,
                     Icon = Service.Textures!.IconEye,
-                    BasicTooltipText = "Hover to preview markers on the map",
+                    BasicTooltipText = "懸停以預覽地圖上的標記",
                     Size = new Point(30, 30)
                 };
                 preview.MouseEntered += (s, e) =>
@@ -324,7 +324,7 @@ public class AutoMarkerCommunityLibraryView : View
                 {
                     Parent = btn,
                     Icon = Service.Textures!._blishHeartSmall,
-                    Text = "Place",
+                    Text = "放置",
                     Width = 100
                 };
                 placeBtn.Click += (s, e) =>
@@ -341,9 +341,9 @@ public class AutoMarkerCommunityLibraryView : View
             var importButton = new StandardButton()
             {
                 Icon = Service.Textures!.IconImport,
-                Text = alreadyImported ? "Imported" : "Import",
+                Text = alreadyImported ? "已匯入" : "匯入",
                 Enabled = !alreadyImported,
-                BasicTooltipText = "Import this community marker set into your library",
+                BasicTooltipText = "將此社群標記組合匯入您的資料庫",
                 Parent = btn,
             };
 
@@ -357,7 +357,7 @@ public class AutoMarkerCommunityLibraryView : View
                     return;
                 }
                 Service.MarkersListing.SaveMarker(markerSet);
-                ScreenNotification.ShowNotification($"Imported \"{summary.Name}\" into your library",
+                ScreenNotification.ShowNotification($"已將 \"{summary.Name}\" 匯入至您的資料庫中",
                     ScreenNotification.NotificationType.Green);
                 ReloadMarkerList(shouldFilter);
                 RenderShareSection();

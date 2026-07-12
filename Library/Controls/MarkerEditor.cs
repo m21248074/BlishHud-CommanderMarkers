@@ -59,7 +59,7 @@ public class MarkerEditor : FlowPanel
             Parent = this,
             Text = marker.name,
             Size = new Point(100,30),
-            BasicTooltipText = "Name the marker.\nHelpful for remembering which marker is where."
+            BasicTooltipText = "命名標記。\n這有助於記住各個標記的位置。"
         };
         description.TextChanged += (s, e) =>
         {
@@ -69,7 +69,7 @@ public class MarkerEditor : FlowPanel
         var deleteButton = new Image()
         {
             Parent = this,
-            BasicTooltipText = "Delete marker",
+            BasicTooltipText = "刪除標記",
             Texture = Service.Textures!.IconDelete,
             Size = new Point(28, 28),   
             

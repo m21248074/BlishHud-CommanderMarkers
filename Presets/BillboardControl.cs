@@ -109,8 +109,8 @@ public class BillboardControl : Control
                 var interactKey = Service.Settings._settingInteractKeyBinding.Value.GetBindingDisplayText();
                 var _bitmapFont = ContentService.Content.DefaultFont18;
                 spriteBatch.Draw(textureToUse, _promptRectangle, Color.White);
-                spriteBatch.DrawStringOnCtrl(this, $"Press '{interactKey}' to place markers\n{entity.GetMarkerText()}", _bitmapFont, _textRectangle, Color.Black, false, true,2, horizontalAlignment: Blish_HUD.Controls.HorizontalAlignment.Left, verticalAlignment: VerticalAlignment.Middle);
-                spriteBatch.DrawStringOnCtrl(this, $"Press '{interactKey}' to place markers\n{entity.GetMarkerText()}", _bitmapFont, _textRectangle, Color.White, horizontalAlignment: Blish_HUD.Controls.HorizontalAlignment.Left, verticalAlignment: VerticalAlignment.Middle);
+                spriteBatch.DrawStringOnCtrl(this, $"按下 '{interactKey}' 以放置標記\n{entity.GetMarkerText()}", _bitmapFont, _textRectangle, Color.Black, false, true,2, horizontalAlignment: Blish_HUD.Controls.HorizontalAlignment.Left, verticalAlignment: VerticalAlignment.Middle);
+                spriteBatch.DrawStringOnCtrl(this, $"按下 '{interactKey}' 以放置標記\n{entity.GetMarkerText()}", _bitmapFont, _textRectangle, Color.White, horizontalAlignment: Blish_HUD.Controls.HorizontalAlignment.Left, verticalAlignment: VerticalAlignment.Middle);
 
             }
         }

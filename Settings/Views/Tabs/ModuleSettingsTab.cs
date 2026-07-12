@@ -23,29 +23,29 @@ public class ModuleSettingsTab : ISettingsMenuRegistrar
         ));
 #endif
         _registeredMenuItems.Add(new MenuViewItem(
-            new MenuItem("Clickable Markers"),
+            new MenuItem("可點擊標記"),
             _ => new MarkerPanelSettingsView()
         ));
         _registeredMenuItems.Add(new MenuViewItem(
-            new MenuItem("AutoMarker Settings"),
+            new MenuItem("自動標記設定"),
             _ => new AutoMarkerSettingsView()
         ));
         //Update index in ActivateLibraryTab
         _registeredMenuItems.Add(new MenuViewItem(
-            new MenuItem("AutoMarker Library"),
+            new MenuItem("自動標記庫"),
             _ => new AutoMarkerLibraryView()
         ));
         _registeredMenuItems.Add(new MenuViewItem(
-        new MenuItem("Community Library"),
+        new MenuItem("社群資料庫"),
             _ => new AutoMarkerCommunityLibraryView()
         ));
         _registeredMenuItems.Add(new MenuViewItem(
-            new MenuItem("Keybinds"),
+            new MenuItem("按鍵綁定"),
             _ => new KeybindSettingsView()
         ));
 
         _registeredMenuItems.Add(new MenuViewItem(
-            new MenuItem("General"),
+            new MenuItem("一般"),
             _ => new CornerIconSettingsView()
         ));
     }

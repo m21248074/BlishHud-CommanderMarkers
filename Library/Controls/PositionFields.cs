@@ -29,8 +29,8 @@ public class PositionFields: Container
         _locBtn = new StandardButton()
         {
             Parent = this,
-            Text = "Set Location",
-            BasicTooltipText = "Set the X, Y, Z location to where you are currently standing",
+            Text = "設定位置",
+            BasicTooltipText = "將 X、Y、Z 座標設定為您當前所處的位置",
             Size = new Point(100, 30),
             Location = new Point(0, 0)
         };
@@ -41,11 +41,11 @@ public class PositionFields: Container
             _importBtn = new StandardButton()
             {
                 Parent = this,
-                Text = "Import",
+                Text = "匯入",
                 Size = new Point(80, 30),
                 Location = new Point(105, 0),
                 Icon = Service.Textures!.IconImport,
-                BasicTooltipText = "Import this marker's position from squad markers placed in-game.\nRequires the Real-Time API addon.",
+                BasicTooltipText = "從遊戲內放置的團隊標記匯入此標記的位置。\n需要安裝即時 API (Real-Time API) 插件。",
                 Enabled = Service.RtApiConnection?.IsActive == true,
             };
             _importBtn.Click += ImportBtn_Click;

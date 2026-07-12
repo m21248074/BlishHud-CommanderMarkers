@@ -222,7 +222,7 @@ public class MapWatchService : IDisposable
             {
 
                 ScreenNotification.ShowNotification(
-                    $"Unable to place {errors.Count} marker(s)\nTry moving your map to the marker trigger",
+                    $"無法放置 {errors.Count} 個標記\n請嘗試將地圖移動至標記觸發點",
                     ScreenNotification.NotificationType.Warning, null, 6
                 );
             }

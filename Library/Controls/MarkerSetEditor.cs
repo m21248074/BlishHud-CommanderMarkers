@@ -48,9 +48,9 @@ public class MarkerSetEditor : FlowPanel
         new Label()
         {
             Parent = metaFlow,
-            Text = "Name",
+            Text = "名稱",
             Size = new Point(99, 30),
-            BasicTooltipText = "The name shown on the map when you are within range of using the marker set"
+            BasicTooltipText = "當您位於可使用此標記組合的範圍內時，地圖上將顯示此名稱"
 
         };
         var title = new TextBox()
@@ -59,7 +59,7 @@ public class MarkerSetEditor : FlowPanel
             Location = new Point(0, 0),
             Size = new Point(299, 30),
             Text = _markerSet.name,
-            BasicTooltipText = "The name shown on the map when you are within range of using the marker set"
+            BasicTooltipText = "當您位於可使用此標記組合的範圍內時，地圖上將顯示此名稱"
 
         };
         title.TextChanged += (s, e) => _markerSet.name = title.Text;
@@ -68,7 +68,7 @@ public class MarkerSetEditor : FlowPanel
         {
             Parent = metaFlow,
             Icon = Service.Textures!.IconEye,
-            BasicTooltipText = "Preview",
+            BasicTooltipText = "預覽",
             Size = new Point(30, 30)
         };
         Preview.MouseEntered += (s, e) => Service.MapWatch.PreviewMarkerSet(_markerSet);
@@ -77,9 +77,9 @@ public class MarkerSetEditor : FlowPanel
         new Label()
         {
             Parent = metaFlow,
-            Text = "Description",
+            Text = "描述",
             Size = new Point(100, 30),
-            BasicTooltipText = "This text is shown on the map when you are within range of using the marker set"
+            BasicTooltipText = "當您在可使用此標記組合的範圍內時，這段文字將顯示在地圖上"
         };
        
         var description = new TextBox()
@@ -88,7 +88,7 @@ public class MarkerSetEditor : FlowPanel
             Location = new Point(0, 0),
             Size = new Point(300, 30),
             Text = _markerSet.description,
-            BasicTooltipText = "This text is shown on the map when you are within range of using the marker set"
+            BasicTooltipText = "當您在可使用此標記組合的範圍內時，這段文字將顯示在地圖上"
 
         };
         description.TextChanged += (s,e) => _markerSet.description = description.Text;
@@ -97,15 +97,15 @@ public class MarkerSetEditor : FlowPanel
         {
             Parent = metaFlow,
             Size = new Point(100, 30),
-            Text = "Trigger Location",
-            BasicTooltipText = "Location to be near to activate this marker set"
+            Text = "觸發位置",
+            BasicTooltipText = "靠近此位置以啟用該標記組合"
         };
         var label = new Label()
         {
             Parent = metaFlow,
             Size = new Point(300, 30),
-            Text = $"Map: {Service.MapDataCache.Describe(_markerSet.MapId)}",
-            BasicTooltipText ="Set trigger location to update map"
+            Text = $"地圖: {Service.MapDataCache.Describe(_markerSet.MapId)}",
+            BasicTooltipText = "設定觸發位置以更新地圖"
         };
         var triggerFields = new PositionFields(_markerSet.trigger)
         {
@@ -115,7 +115,7 @@ public class MarkerSetEditor : FlowPanel
         {
             _markerSet.trigger = e;
             _markerSet.mapId = Gw2MumbleService.Gw2Mumble.CurrentMap.Id;
-            label.Text = $"Map: {Service.MapDataCache.Describe(_markerSet.MapId)}";
+            label.Text = $"地圖: {Service.MapDataCache.Describe(_markerSet.MapId)}";
         };
 
         if (RtApiIntegrationHelper.IsEnabled)
@@ -123,10 +123,10 @@ public class MarkerSetEditor : FlowPanel
             _importAllButton = new StandardButton()
             {
                 Parent = this,
-                Text = "Import active squad markers",
+                Text = "導入現有團隊標記",
                 Width = 410,
                 Icon = Service.Textures!.IconImport,
-                BasicTooltipText = "Copy currently placed squad marker locations from the Real-Time API.\nRequires the Real-Time API addon.",
+                BasicTooltipText = "從即時 API (Real-Time API) 複製當前已放置的團隊標記位置。\n需要安裝即時 API 插件。",
                 Enabled = Service.RtApiConnection?.IsActive == true,
             };
             _importAllButton.Click += ImportAllButton_Click;
@@ -139,7 +139,7 @@ public class MarkerSetEditor : FlowPanel
         _AddMarkerButton = new StandardButton()
         {
             Parent = this,
-            Text = "Add Marker",
+            Text = "新增標記",
             Width = 410,
             Enabled = _markerSet.marks.Count < 8
         };

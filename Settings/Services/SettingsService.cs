@@ -65,18 +65,18 @@ public class SettingService: IDisposable // singular because Setting"s"Service a
 
         CornerIconPriority = settings.DefineSetting("CmdMrkCornerPriority",
             Constants.CornerIcon.DEFAULT_PRIORITY,
-            () => "Top-left icon sort order",
-            () => "Left <----> Right");
+            () => "左上角圖示排序順序",
+            () => "左 <----> 右");
         CornerIconPriority.SetRange(Constants.CornerIcon.MIN_PRIORITY, Constants.CornerIcon.MAX_PRIORITY);
 
         CornerIconTexture = settings.DefineSetting("CmdMrkCornerTexture",
             SquadMarker.Heart,
-            () => "Top-left icon image",
-            () => "Choose a marker to appear in the top-left icon bar");
+            () => "左上角圖示影像",
+            () => "選擇一個要顯示在左上角圖示列的標記");
         CornerIconTexture.SetExcluded(new SquadMarker[]{SquadMarker.None, SquadMarker.Clear});
 
-        _settingGroundMarkersEnabled = settings.DefineSetting("CmdMrkGnnEnabled", true, () => "Show icons for placing Ground Markers", () => "");
-        _settingTargetMarkersEnabled = settings.DefineSetting("CmdMrkTgtEnabled", true, () => "Show icons for placing Target/Object Markers", () => "");
+        _settingGroundMarkersEnabled = settings.DefineSetting("CmdMrkGnnEnabled", true, () => "顯示用於放置地面標記的圖示", () => "");
+        _settingTargetMarkersEnabled = settings.DefineSetting("CmdMrkTgtEnabled", true, () => "顯示用於放置目標/物件標記的圖示", () => "");
         _settingArrowGndBinding = settings.DefineSetting("CmdMrkArrowGndBinding", new KeyBinding(ModifierKeys.Alt, Keys.D1), () => "Arrow Ground Binding", () => "");
         _settingArrowGndBinding = settings.DefineSetting("CmdMrkArrowGndBinding", new KeyBinding(ModifierKeys.Alt, Keys.D1), () => "Arrow Ground Binding", () => "");
         _settingCircleGndBinding = settings.DefineSetting("CmdMrkCircleGndBinding", new KeyBinding(ModifierKeys.Alt, Keys.D2), () => "Circle Ground Binding", () => "");
@@ -103,21 +103,21 @@ public class SettingService: IDisposable // singular because Setting"s"Service a
 
         _settingLoc = settings.DefineSetting("CmdMrkLoc", new Point(100, 100), () => "Location", () => "");
 
-        _settingOrientation = settings.DefineSetting("CmdMrkOrientation2", Layout.Horizontal, () => "Orientation", () => "");
-        _settingImgWidth = settings.DefineSetting("CmdMrkImgWidth", Constants.UI.DEFAULT_ICON_SIZE, () => "Icon Size", () => "Set the size of the on screen marker icons");
-        _settingOpacity = settings.DefineSetting("CmdMrkOpacity", Constants.UI.DEFAULT_OPACITY, () => "Opacity", () => "Set the panel's transparency\nHidden<---->Visible");
-        _settingDrag = settings.DefineSetting("CmdMrkDrag", false, () => "Reposition the markers   -  Enable Dragging", () => "Allow the clickable markers to be repositioned");
-        _settingShowMarkersPanel = settings.DefineSetting("CmdMrkShowMarkerPanelr", true, () => "Show clickable markers on screen", () => "Hide/show the clickable markers panel");
+        _settingOrientation = settings.DefineSetting("CmdMrkOrientation2", Layout.Horizontal, () => "排列方式", () => "");
+        _settingImgWidth = settings.DefineSetting("CmdMrkImgWidth", Constants.UI.DEFAULT_ICON_SIZE, () => "圖示大小", () => "設定畫面上標記圖示的大小");
+        _settingOpacity = settings.DefineSetting("CmdMrkOpacity", Constants.UI.DEFAULT_OPACITY, () => "透明度", () => "設定面板透明度\n隱藏<---->顯示");
+        _settingDrag = settings.DefineSetting("CmdMrkDrag", false, () => "重新調整標記位置 - 啟用拖曳", () => "允許重新調整可點擊標記的位置");
+        _settingShowMarkersPanel = settings.DefineSetting("CmdMrkShowMarkerPanelr", true, () => "在畫面上顯示可點擊的標記", () => "隱藏/顯示可點擊標記面板");
         _settingOnlyWhenCommander = settings.DefineSetting(
             "CmdMrkOnlyCommander",
             false,
-            () => "Only show when I am the Commander",
-            () => "Hides the clickable markers when you are not the Commander");
+            () => "僅在我是指揮官時顯示",
+            () => "當您不是指揮官時，隱藏可點擊標記");
         AutoMarker_PlacementDelay = settings.DefineSetting(
             "CmdMrkPlacementDelay",
             Constants.AutoMarker.DEFAULT_PLACEMENT_DELAY_MS,
-            () => "Placement Delay",
-            () => "Delay in milliseconds to wait between marker placement\nFaster <-----> Slower"
+            () => "放置延遲",
+            () => "放置標記之間的等待延遲\n較快 <-----> 較慢"
             );
 
         //_settingMapVisible = settings.DefineSetting("CmdMrkShow", VisibleOnMap.HideOnMap, ()=>"Show on map", () => "");
@@ -130,14 +130,14 @@ public class SettingService: IDisposable // singular because Setting"s"Service a
         AutoMarker_OnlyWhenCommander = settings.DefineSetting(
             "CmdMrkAMOnlyCommander",
             true,
-            () => "Only show when I am the Commander",
-            () => "Only show the AutoMarker activation zones on the map when you are the Commander"
+            () => "僅在身為指揮官時顯示",
+            () => "當您是指揮官時，僅在地圖上顯示自動標記啟動區"
         );
         AutoMarker_FeatureEnabled = settings.DefineSetting(
             "CmdMrkAMEnabled",
             true,
-            () => "Enable",
-            () => "Enable/Disable the entire AutoMarker feature"
+            () => "啟用",
+            () => "啟用/停用整個自動標記功能"
         );
         AutoMarker_LibraryFilterToCurrent = settings.DefineSetting(
             "CmdMrkAMLibraryFilter",
@@ -154,63 +154,63 @@ public class SettingService: IDisposable // singular because Setting"s"Service a
         AutoMarker_ShowPreview = settings.DefineSetting(
             "CmdMrkAMShowPreview",
             true,
-            () => "Show preview when map is open",
-            () => "Show a preview of the markers when the map is open and you are close enough to place the set"
+            () => "在地圖開啟時顯示預覽",
+            () => "當您開啟地圖，且距離足夠近以放置標記組合時，顯示標記預覽"
         );
         AutoMarker_ShowTrigger = settings.DefineSetting(
             "CmdMrkAMShowTrigger",
             true,
-            () => "Enable Map Marker",
-            () => "Display the Blish holding markers map icon in locations where AutoMarker sets may be activated from the map"
+            () => "啟用地圖標記",
+            () => "在可以從地圖啟用自動標記組合的位置，顯示 Blish HUD 的標記圖示"
         );
 
         AutoMarker_Billboard_FeatureEnabled = settings.DefineSetting(
             "CmdMrkBillboardEnabled",
             true,
-            () => "Enable markers in 3D game world",
-            () => "Show markers in the 3D game world"
+            () => "啟用 3D 遊戲世界中的標記",
+            () => "在 3D 遊戲世界中顯示標記"
         );
         
         AutoMarker_Billboard_Placement = settings.DefineSetting(
             "CmdMrkAMCanBypassMapOpen",
             true,
-            () => "Allow placement without having the map open",
-            () => "Allow the marker placement even when the map is closed"
+            () => "允許在不開啟地圖的情況下放置",
+            () => "即使在關閉地圖時，也允許放置標記"
         );
 
         AutoMarker_Billboard_Preview = settings.DefineSetting(
             "CmdMrkBillboardPreview",
             true,
-            () => "Preview marker set when near trigger",
-            () => "Show a preview of the markers to be placed in the game world"
+            () => "當靠近觸發點時預覽標記組合",
+            () => "在遊戲世界中顯示即將放置的標記預覽"
         );
 
         AutoMarker_Allow_Combat_Placement = settings.DefineSetting(
             "CmdMrkCombatPlacement",
             false,
-            () => "Allow AutoMarker features while In Combat",
-            () => "AutoMarker features will be available while in combat"
+            () => "允許在戰鬥中使用自動標記功能",
+            () => "自動標記功能將可在戰鬥中運作"
         );
 
         RtApiIntegrationEnabled = settings.DefineSetting(
             "CmdMrkRtApiEnabled",
             false,
-            () => "Enable Raidcore.GG Nexus Real-Time API integration",
-            () => "Use RTAPI (via Nexus game memory reading) to import active squad marker positions in the library editor"
+            () => "啟用 Raidcore.GG Nexus 即時 API 整合",
+            () => "使用 RTAPI (透過 Nexus 遊戲記憶體讀取) 在資料庫編輯器中匯入當前小隊標記位置"
         );
 
         CornerIconEnabled = settings.DefineSetting(
             "CmdMrkCornerIconEnabled",
             true,
-            () => "Show an icon in the top-left manu bar",
-            () => "Adds a shortcut icon in the top-left menu bar"
+            () => "在左上角選單列顯示圖示",
+            () => "在左上角選單列新增捷徑圖示"
         );
 
         CornerIconLeftClickAction = settings.DefineSetting(
             "CmdMrkAMCornerIconAction",
             CornerIconActions.SHOW_ICON_MENU,
-            () => "Icon left-click action",
-            () => "Select an action for menu bar icon left-click\nRight click will always open a small menu"
+            () => "圖示左鍵點擊動作",
+            () => "選擇選單列圖示左鍵點擊的動作\n右鍵點擊將永遠開啟小型選單"
         );
     }
 

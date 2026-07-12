@@ -4,19 +4,19 @@ namespace Manlaan.CommanderMarkers.Settings.Enums;
 
 public enum CornerIconActions
 {
-    [Description("Show Quick Access Menu")]
+    [Description("顯示快速存取選單")]
     SHOW_ICON_MENU,
 
-    [Description("Show The Settings Window")]
+    [Description("顯示設定視窗")]
     SHOW_SETTINGS,
 
-    [Description("Open The Marker library")]
+    [Description("開啟標記資料庫")]
     LIBRARY,
 
-    [Description("Lieutenant's Mode")]
+    [Description("副官模式")]
     LIEUTENANT,
 
-    [Description("Toggle Markers Panel Visibility")]
+    [Description("切換標記面板可見性")]
     CLICKMARKER_TOGGLE,
 
 

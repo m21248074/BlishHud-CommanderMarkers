@@ -34,7 +34,7 @@ public class SettingsPanel : TabbedWindow2
         Emblem = Service.Textures?._blishHeart;
         Parent = GameService.Graphics.SpriteScreen;
         Title = "Commander Markers";
-        Subtitle = "configuration";
+        Subtitle = "配置";
         SavesPosition = true;
 
         BuildTabs();

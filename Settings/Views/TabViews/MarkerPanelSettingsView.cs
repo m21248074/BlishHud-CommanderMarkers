@@ -29,7 +29,7 @@ public class MarkerPanelSettingsView : View
             .AddSetting(_settings._settingOpacity)
             .AddSettingEnum(_settings._settingOrientation)
             .AddSpace()
-            .AddString("Preview")
+            .AddString("預覽")
             .AddSpace()
             .AddControl(new MarkersPanel(Service.Settings, Service.Textures!, false));
 

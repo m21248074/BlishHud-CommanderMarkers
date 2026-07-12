@@ -85,9 +85,9 @@ namespace Manlaan.CommanderMarkers
             //var refreshApiContextMenu = new ContextMenuStripItem(Strings.Settings_RefreshNow);
             //refreshApiContextMenu.Click += (s, e) => Service.ApiPollingService?.Invoke();
 
-            var LtMode = new ContextMenuStripItem("Lieutenant's Mode")
+            var LtMode = new ContextMenuStripItem("副官模式")
             {
-                BasicTooltipText = "Temporarily override the 'Only While Commander' settings",
+                BasicTooltipText = "暫時覆蓋 '僅在身為指揮官時顯示' 的設定",
                 CanCheck = true,
                 Checked = false
             };
@@ -97,8 +97,8 @@ namespace Manlaan.CommanderMarkers
                 "Commander Markers",
                 new List<ContextMenuStripItem>()
                 {
-                    new CornerIconToggleMenuItem(Service.SettingsWindow, "Open Settings"),
-                    new LibrayCornerIconMenuItem(Service.Settings.AutoMarker_FeatureEnabled, "Open Library"),
+                    new CornerIconToggleMenuItem(Service.SettingsWindow, "打開設定"),
+                    new LibrayCornerIconMenuItem(Service.Settings.AutoMarker_FeatureEnabled, "開啟資料庫"),
                     new ContextMenuStripItemSeparator(),
                     LtMode,
 

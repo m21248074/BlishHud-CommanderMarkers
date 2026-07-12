@@ -20,17 +20,17 @@ public class AutoMarkerSettingsView : View
 
         var panel = new FlowPanel()
             .BeginFlow(buildPanel)
-            .AddString("AutoMarker Feature")
-            .AddString("Allows for rapidly placing saved marker sets")
+            .AddString("自動標記功能")
+            .AddString("允許快速放置儲存的標記組合。")
             .AddSpace()
             .AddSetting(_settings.AutoMarker_FeatureEnabled)
             .AddSetting(_settings.AutoMarker_OnlyWhenCommander)
             .AddSpace()
-            .AddString("Map Icons")
+            .AddString("地圖圖示")
             .AddSetting(_settings.AutoMarker_ShowTrigger)
             .AddSetting(_settings.AutoMarker_ShowPreview)
             .AddSpace()
-            .AddString("In Game World Icons")
+            .AddString("遊戲世界圖示")
             .AddSetting(_settings.AutoMarker_Billboard_FeatureEnabled)
             .AddSetting(_settings.AutoMarker_Billboard_Placement)
             .AddSetting(_settings.AutoMarker_Billboard_Preview)
@@ -40,7 +40,7 @@ public class AutoMarkerSettingsView : View
             .AddSetting(_settings.AutoMarker_PlacementDelay)
             .AddFlowControl(new Label()
             {
-                Text = $"  Delay Time: {_settings.AutoMarker_PlacementDelay.Value} ms",
+                Text = $"  延遲時間: {_settings.AutoMarker_PlacementDelay.Value} 毫秒",
 
                 AutoSizeWidth = true,
             }, out var delayLabel)
@@ -50,15 +50,15 @@ public class AutoMarkerSettingsView : View
         new Label()
         {
             Parent = buildPanel,
-            Text = "Press and hold Ctrl and Shift to activate the button",
+            Text = "按住 Ctrl 和 Shift 鍵以啟用按鈕",
             AutoSizeWidth = true,
             Location = new Point(0, buildPanel.Height - 65)
         };
         var ResetButton = new NuclearOptionButton()
         {
             Parent = buildPanel,
-            Text = $"Reset Library To Default",
-            BasicTooltipText = "Warning: This will delete ALL marker sets in your Library\nand restore the default markers.\n\nPress and hold Ctrl and Shift to activate the button",
+            Text = $"將資料庫重設為預設值",
+            BasicTooltipText = "警告：此操作將刪除您資料庫中的所有標記組合，並還原為預設標記。\n\n按住 Ctrl 和 Shift 鍵以啟用按鈕",
             Width = 200,
             Location = new Point(0, buildPanel.Height - 35)
         };

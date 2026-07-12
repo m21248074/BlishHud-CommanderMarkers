@@ -18,7 +18,7 @@ class ModuleSettingsView : View
         buildPanel.AddControl(new StandardButton
         {
             Parent = buildPanel,
-            Text = "Open Settings",
+            Text = "打開設定",
             Size = buildPanel.Size.Scale(0.20f),
             Location = buildPanel.Size.Half() - buildPanel.Size.Scale(0.20f).Half(),
 

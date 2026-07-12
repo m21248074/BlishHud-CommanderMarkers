@@ -60,7 +60,7 @@ public class KeybindSettingsView : View
             AutoSizeHeight = false,
             WrapText = false,
             Parent = keysPanel,
-            Text = "Ground",
+            Text = "地面",
             HorizontalAlignment = HorizontalAlignment.Center,
         };
         Label settingObject_Label = new Label()
@@ -70,7 +70,7 @@ public class KeybindSettingsView : View
             AutoSizeHeight = false,
             WrapText = false,
             Parent = keysPanel,
-            Text = "Object",
+            Text = "物件",
             HorizontalAlignment = HorizontalAlignment.Center,
         };
 
@@ -81,7 +81,7 @@ public class KeybindSettingsView : View
             AutoSizeHeight = false,
             WrapText = false,
             Parent = keysPanel,
-            Text = "Arrow",
+            Text = "箭頭",
         };
         KeybindingAssigner settingArrowGnd_Keybind = new KeybindingAssigner()
         {
@@ -113,7 +113,7 @@ public class KeybindSettingsView : View
             AutoSizeHeight = false,
             WrapText = false,
             Parent = keysPanel,
-            Text = "Circle",
+            Text = "圓圈",
         };
         KeybindingAssigner settingCircleGnd_Keybind = new KeybindingAssigner()
         {
@@ -145,7 +145,7 @@ public class KeybindSettingsView : View
             AutoSizeHeight = false,
             WrapText = false,
             Parent = keysPanel,
-            Text = "Heart",
+            Text = "愛心",
         };
         KeybindingAssigner settingHeartGnd_Keybind = new KeybindingAssigner()
         {
@@ -177,7 +177,7 @@ public class KeybindSettingsView : View
             AutoSizeHeight = false,
             WrapText = false,
             Parent = keysPanel,
-            Text = "Square",
+            Text = "方形",
         };
         KeybindingAssigner settingSquareGnd_Keybind = new KeybindingAssigner()
         {
@@ -209,7 +209,7 @@ public class KeybindSettingsView : View
             AutoSizeHeight = false,
             WrapText = false,
             Parent = keysPanel,
-            Text = "Star",
+            Text = "星形",
         };
         KeybindingAssigner settingStarGnd_Keybind = new KeybindingAssigner()
         {
@@ -241,7 +241,7 @@ public class KeybindSettingsView : View
             AutoSizeHeight = false,
             WrapText = false,
             Parent = keysPanel,
-            Text = "Spiral",
+            Text = "螺旋",
         };
         KeybindingAssigner settingSpiralGnd_Keybind = new KeybindingAssigner()
         {
@@ -273,7 +273,7 @@ public class KeybindSettingsView : View
             AutoSizeHeight = false,
             WrapText = false,
             Parent = keysPanel,
-            Text = "Triangle",
+            Text = "三角",
         };
         KeybindingAssigner settingTriangleGnd_Keybind = new KeybindingAssigner()
         {
@@ -305,7 +305,7 @@ public class KeybindSettingsView : View
             AutoSizeHeight = false,
             WrapText = false,
             Parent = keysPanel,
-            Text = "X",
+            Text = "叉號",
         };
         KeybindingAssigner settingXGnd_Keybind = new KeybindingAssigner()
         {
@@ -337,7 +337,7 @@ public class KeybindSettingsView : View
             AutoSizeHeight = false,
             WrapText = false,
             Parent = keysPanel,
-            Text = "Clear",
+            Text = "清除",
         };
         KeybindingAssigner settingClearGnd_Keybind = new KeybindingAssigner()
         {
@@ -370,8 +370,8 @@ public class KeybindSettingsView : View
             AutoSizeHeight = false,
             WrapText = false,
             Parent = keysPanel,
-            Text = "Interact",
-            BasicTooltipText = "The In-Game keybind for 'interact' (Default F)"
+            Text = "互動",
+            BasicTooltipText = "遊戲內 '互動' 的按鍵綁定(預設為 F)"
         };
         KeybindingAssigner settingInteract_Keybind = new KeybindingAssigner()
         {
@@ -380,7 +380,7 @@ public class KeybindSettingsView : View
             Parent = keysPanel,
             KeyBinding = _settings._settingInteractKeyBinding.Value,
             Location = new Point(settingInteract_Label.Right + 5, settingInteract_Label.Top - 1),
-            BasicTooltipText = "The In-Game keybind for 'interact' (Default F)"
+            BasicTooltipText = "遊戲內 '互動' 的按鍵綁定(預設為 F)"
         };
         settingInteract_Keybind.BindingChanged += delegate {
             _settings._settingInteractKeyBinding.Value = settingInteract_Keybind.KeyBinding;

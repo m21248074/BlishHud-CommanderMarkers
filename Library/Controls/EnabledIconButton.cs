@@ -52,12 +52,12 @@ public class EnabledIconButton : IconButton, IDisposable
         if (_watchValue)
         {
             Icon = _enabledTexture;
-            BasicTooltipText = "Click to disable this marker set";
+            BasicTooltipText = "點擊以停用此標記組合";
         }
         else
         {
             Icon = _disabledTexture;
-            BasicTooltipText = "Click to enable this marker set";
+            BasicTooltipText = "點擊以啟用此標記組合";
         }
 
         Invalidate();

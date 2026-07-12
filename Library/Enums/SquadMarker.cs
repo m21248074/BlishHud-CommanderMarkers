@@ -7,23 +7,23 @@ public enum SquadMarker
 {
     [Description("----")]
     None,
-    [Description("Arrow")]
+    [Description("箭頭")]
     Arrow,
-    [Description("Circle")]
+    [Description("圓圈")]
     Circle,
-    [Description("Heart")]
+    [Description("愛心")]
     Heart,
-    [Description("Square")]
+    [Description("方形")]
     Square,
-    [Description("Star")]
+    [Description("星形")]
     Star,
-    [Description("Spiral")]
+    [Description("螺旋")]
     Spiral,
-    [Description("Triangle")]
+    [Description("三角")]
     Triangle,
-    [Description("Cross")]
+    [Description("叉號")]
     Cross,
-    [Description("Clear")]
+    [Description("清除")]
     Clear
 }
 public static class SquadMarkerExtension

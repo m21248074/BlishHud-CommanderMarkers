@@ -4,10 +4,10 @@ namespace Manlaan.CommanderMarkers.Settings.Enums;
 
 public enum Layout
 {
-    [Description("Vertical")]
+    [Description("垂直")]
     Vertical,
     
-    [Description("Horizontal")]
+    [Description("水平")]
     Horizontal
     
 }

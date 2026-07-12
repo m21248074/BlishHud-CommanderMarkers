@@ -1,33 +1,33 @@
 {
-  "name": "Commander Markers",
-  "version": "3.5.0",
-  "namespace": "Manlaan.CommanderMarkers",
-  "package": "CommanderMarkers.dll",
-  "manifest_version": 1,
+    "name": "Commander Markers",
+    "version": "3.5.0",
+    "namespace": "Manlaan.CommanderMarkers",
+    "package": "CommanderMarkers.dll",
+    "manifest_version": 1,
 
-  "description": "Place squad markers with the click a mouse.\nOr place a full set of markers from your saved library.",
-  "dependencies": {
-    "bh.blishhud": ">=1.0.0"
-  },
-  "url": "https://github.com/manlaan/BlishHud-CommanderMarkers",
-  "contributors": [
-    {
-      "name": "Soeed",
-      "username": "Soeed.4160"
+    "description": "透過滑鼠點擊放置小隊標記。\n或是從您儲存的圖庫中放置一整組標記。",
+    "dependencies": {
+        "bh.blishhud": ">=1.0.0"
     },
-    {
-      "name": "Manlaan",
-      "username": "manlaan.8921"
-    }
+    "url": "https://github.com/manlaan/BlishHud-CommanderMarkers",
+    "contributors": [
+        {
+            "name": "Soeed",
+            "username": "Soeed.4160"
+        },
+        {
+            "name": "Manlaan",
+            "username": "manlaan.8921"
+        }
 
-  ],
-  "directories": [
-    "commanderMarkers"
-  ],
-  "api_permissions": {
-    "account": {
-      "optional": true,
-      "details": "Used to submit marker sets to the community library"
+    ],
+    "directories": [
+        "commanderMarkers"
+    ],
+    "api_permissions": {
+        "account": {
+            "optional": true,
+            "details": "用於將標記組合提交至社群圖庫"
+        }
     }
-  }
 }
