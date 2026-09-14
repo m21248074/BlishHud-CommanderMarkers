@@ -504,7 +504,7 @@ public class AutoMarkerLibraryView : View
 
             var fallbackIcon = marker.enabled
                 ? ((SquadMarker)((markerIdx % 8) + 1)).GetIcon()
-                : Service.Textures._imgClear;
+                : Service.Textures!._imgClear;
             var btn = new DetailsButton()
             {
                 Text = (marker.enabled ? "" : "(已停用) ") + $"{marker.name}\n{marker.description}\n{mapName}",

@@ -1,9 +1,9 @@
 {
-    "name": "Commander Markers",
-    "version": "3.5.0",
-    "namespace": "Manlaan.CommanderMarkers",
-    "package": "CommanderMarkers.dll",
-    "manifest_version": 1,
+  "name": "Commander Markers",
+  "version": "3.5.1",
+  "namespace": "Manlaan.CommanderMarkers",
+  "package": "CommanderMarkers.dll",
+  "manifest_version": 1,
 
     "description": "透過滑鼠點擊放置小隊標記。\n或是從您儲存的圖庫中放置一整組標記。",
     "dependencies": {
