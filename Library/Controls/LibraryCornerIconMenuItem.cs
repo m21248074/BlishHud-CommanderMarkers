@@ -36,7 +36,7 @@ public class LibrayCornerIconMenuItem : ContextMenuStripItem
         });
         if(menuListItems.Count <= 0)
         {
-            menuListItems.Add(new ContextMenuStripItem("No marker sets for this map"));
+            menuListItems.Add(new ContextMenuStripItem("此地圖無標記組"));
         }
 
         return menuListItems;
