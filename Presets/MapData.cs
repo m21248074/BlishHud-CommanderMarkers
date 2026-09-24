@@ -53,6 +53,10 @@ public class MapData : IDisposable
 
         _maps = cache?.Maps ?? new Dictionary<int, Map>();
 
+        // Caches written before the conversion existed still hold Simplified names.
+        foreach (var map in _maps.Values)
+            map.Name = ChineseConverter.ToTraditional(map.Name);
+
         _ = LoadMapData(cache?.BuildId ?? 0, cacheFilePath, _cts.Token);
         Gw2Mumble.CurrentMap.MapChanged += CurrentMapChanged;
     }
@@ -131,7 +135,11 @@ public class MapData : IDisposable
         lock (_maps)
         {
             foreach (var map in maps)
+            {
+                // The GW2 API has no Traditional Chinese locale; a no-op for non-Chinese text.
+                map.Name = ChineseConverter.ToTraditional(map.Name);
                 _maps[map.Id] = map;
+            }
         }
 
         Directory.CreateDirectory(Path.GetDirectoryName(cacheFilePath));

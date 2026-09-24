@@ -40,6 +40,9 @@
     <EmbeddedResource Include="assets\data\builtin_marker_set_ids.json">
       <LogicalName>builtin_marker_set_ids.json</LogicalName>
     </EmbeddedResource>
+    <EmbeddedResource Include="assets\data\STCharacters.txt">
+      <LogicalName>STCharacters.txt</LogicalName>
+    </EmbeddedResource>
   </ItemGroup>
 
 </Project>
